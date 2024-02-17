@@ -8,6 +8,8 @@ import * as nearAPI from "near-api-js";
 const { connect } = nearAPI;
 import * as fs from "fs";
 
+
+
 const walletCreate = async (newAccountId) => {
     try {
         if (newAccountId === undefined) {
@@ -42,21 +44,20 @@ const walletCreate = async (newAccountId) => {
 
             fs.writeFileSync(
                 `wallets_min_data/${files.length + 1}.json`,
-                `${newAccount.accountId} 
-  ${newAccount.keypair.secretKey}`
+                `{"wallet_address": "${newAccount.accountId}", "private_key": "${newAccount.keypair.secretKey}"}`
             );
         });
 
         console.log(newAccount);
         return true;
     } catch (error) {
+        console.error(error);
         return false;
     }
 };
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-// create 10000 wallets for testing
 async function createNwallets(n) {
     let i = 1;
     let walletCreateSuccess;
@@ -65,15 +66,13 @@ async function createNwallets(n) {
         walletCreateSuccess = await walletCreate();
 
         if (!walletCreateSuccess) {
-            // wait 5 minutes if request limit exceeded
-            await delay(5 * 60 * 1000);
+            console.error("wallet creation failed, retrying after a second")
+            await delay(1000);
+            i--
         }
-
-        await delay(2 * 60 * 1000); // create account in every minute [ request should not exceed]
         i++;
     }
-
-    // after deployment success build "call function of smart contract" part below
 }
-createNwallets(1000);
-// walletCreate(); // optional name input
+
+let numberOfWalletsToCreate = 1000
+createNwallets(numberOfWalletsToCreate);

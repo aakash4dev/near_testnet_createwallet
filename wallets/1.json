@@ -1,0 +1,55 @@
+{
+    "accessKeyByPublicKeyCache": {},
+    "connection": {
+        "networkId": "testnet",
+        "provider": {
+            "connection": {
+                "url": "https://rpc.testnet.near.org"
+            }
+        },
+        "signer": {},
+        "jsvmAccountId": "jsvm.testnet"
+    },
+    "accountId": "solid_turquoise_louse.testnet",
+    "keypair": {
+        "publicKey": {
+            "keyType": 0,
+            "data": {
+                "0": 21,
+                "1": 8,
+                "2": 226,
+                "3": 50,
+                "4": 3,
+                "5": 134,
+                "6": 83,
+                "7": 67,
+                "8": 184,
+                "9": 145,
+                "10": 224,
+                "11": 113,
+                "12": 136,
+                "13": 156,
+                "14": 56,
+                "15": 252,
+                "16": 160,
+                "17": 138,
+                "18": 154,
+                "19": 166,
+                "20": 217,
+                "21": 99,
+                "22": 130,
+                "23": 44,
+                "24": 25,
+                "25": 205,
+                "26": 106,
+                "27": 111,
+                "28": 182,
+                "29": 244,
+                "30": 63,
+                "31": 230
+            }
+        },
+        "secretKey": "8ce6F5kMbu4ZwqZVjtZL9j5epCa41tmCbjRi7EzFLKCf",
+        "extendedSecretKey": "3GCGjVpKdKePhm2fgtdWF565VANUnK5T1kAftkEBwi6Kdvjn99We6QQxcYZvc4Q6KYP9GAMs4BktbaBC7uJDPNhK"
+    }
+}
